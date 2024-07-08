@@ -1,0 +1,75 @@
+{% extends "navbar.html" %}
+
+
+
+{% block title %}Welcome to Pet store{% endblock title %}
+
+
+
+{% block body %} 
+{% load static %}
+
+{% block stylesheet %}
+    <link href="{% static "css/home.css" %}" rel="stylesheet">
+    <link href="{% static "css/globals.css" %}" rel="stylesheet">
+{% endblock stylesheet %}
+
+    
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h2>Welcome to Our Pet Store!</h2>
+            <p>Find your perfect pet companion today.</p>
+            <a href="signup" class="btn sectionbtn">Browse Pets</a>
+        </div>
+    </section>
+    
+
+    <section class="featured-pets">
+        <div class="container">
+            <h2>Featured Pets</h2>
+            <div class="row">
+                <div class="col">
+
+               
+            <div class="pet-grid">
+                <div class="pet-card">
+                    <img src="{% static 'images/fluffy_dog.webp' %}" alt="Pet 1">
+                    <h3>Fluffy</h3>
+                    <p>Fluffy is a friendly and playful dog looking for a loving home.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="pet-card">
+                    <img src="{% static 'images/whiskers.jpg' %}" alt="Pet 2">
+                    <h3>Whiskers</h3>
+                    <p>Whiskers is a curious and active cat who loves to explore.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="pet-card">
+                    <img src="{% static 'images/bunny.jpg' %}" alt="Pet 3">
+                    <h3>Bunny</h3>
+                    <p>Bunny is a gentle and affectionate rabbit who enjoys cuddles.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="pet-card">
+                    <img src="{% static 'images/parrot.jpeg' %}" alt="Pet 4">
+                    <h3>Charlie</h3>
+                    <p>Charlie is an energetic parrot who loves to chat and play.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 My Pet Store. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+    
+{% endblock body %}

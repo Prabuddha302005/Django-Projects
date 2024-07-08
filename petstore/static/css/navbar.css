@@ -1,0 +1,27 @@
+header {
+    background-image: url('../img/navbar-background.jpg'); /* Path relative to the CSS file */
+    background-size: cover; /* Ensure the background covers the entire navbar */
+    background-position: center; /* Center the background image */
+    padding: 10px 0;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #ffa500; /* Orange accent color */
+}

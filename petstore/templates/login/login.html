@@ -1,0 +1,51 @@
+{% extends "navbar.html" %}
+
+
+
+{% block title %}PetPals Login{% endblock title %}
+{% load static %}
+{% block stylesheet %}
+    <link href="{% static "css/login.css" %}" rel="stylesheet">
+    <link href="{% static "css/globals.css" %}" rel="stylesheet">
+{% endblock stylesheet %}
+{% block body %} 
+
+{% if  error_msg %}
+    <div class="alert alert-danger alert-dismissible fade show float-end" role="alert">
+       {{error_msg}}
+       <audio autoplay>
+        <source src="/static/audio/bark.mp3" type="audio/ogg">
+      </audio>
+
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+     </div>
+
+
+     {% endif %}
+
+<div class="login-container" style="margin-top: 20px;">
+    <img src="{% static '/images/pet dog house.png' %}" alt="Pet Store Logo" class="logo">
+    <h2>Login to your account</h2>
+   
+             
+
+    <form method="POST">
+      
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+        </div>
+    
+       
+        <div class="form-group">
+            <a href="login"><button type="submit">Login</button></a>
+        </div>
+    </form>
+    <img src="{% static '/images/paw.png' %}" alt="Paw" class="paw mt-5">
+</div>
+{% endblock body %}
