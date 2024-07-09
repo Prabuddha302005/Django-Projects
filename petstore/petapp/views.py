@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
-
+from petapp import models
 # Create your views here.
 def index_page(request):
     return render(request, "indexpage/index.html")
@@ -55,20 +55,38 @@ def user_login(request):
             else:
                 login(request, user)
                 # return HttpResponse("Login working sucessfull")
+                
                 return redirect('/home')   
-
     return render(request, "login/login.html")  
 
 def user_home(request):
     data={}
     if(request.user.is_authenticated):
+    
       user_id=request.user.id
       user=User.objects.get(id=user_id)
       data['username']=user.username
+    
+      pets = models.MyPetModel.objects.all()
+      data['mypet'] = pets
+      return render(request, "home/home.html", context=data)
+    else:
+      pets = models.MyPetModel.objects.all()
+      data['mypet'] = pets
       return render(request, "home/home.html", context=data)
 
 
-    return render (request, "home/home.html")
+      
+
+
+
+
+
+    
+    
+    
+    return render(request, "home/home.html", context=data)
+  
 
 def user_logout(request):
    logout(request)
