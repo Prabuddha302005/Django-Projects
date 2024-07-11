@@ -50,16 +50,24 @@
   <body>
     {% include "home/homeNav.html" %}
 
-
+    {% if messages %}
+    <div class="alert alert-success alert-dismissible fade show float-end" role="alert">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
 
     <div class="container">
         <div class="row mt-4">
             <!-- Dogs sections -->
-            <h4><img src="/static/images/dog.png" alt="" style="width: 45px;"> <i>Sniff Out Your New Best Friend!</i></h4>
+            <h4><img src="/static/images/dog.png" style="width: 45px;"> <i>Sniff Out Your New Best Friend!</i></h4>
+           
             {% for pets in mypet %}
             <div class="col-md-3">
                 <div class="card product-card">
-                    <img src="{{ pet.image_url }}" class="card-img-top" alt="Product Image">
+                    <img src="/media/{{pets.image}}" class="card-img-top" alt="Product Image">
                     <div class="card-body">
                         <h5 class="card-title">{{ pets.name }}</h5>
                         <p class="card-text">{{ pets.category }}</p>
@@ -73,13 +81,14 @@
             {% empty %}
             <p>No pets available.</p>
             {% endfor %}
+   
         </div>
     </div>
        <!-- cats sections -->
 
        <div class="container">
         <div class="row">
-            <!-- Dogs sections -->
+        
             <h4><img src="/static/images/catNapping.png" alt="" style="width: 45px;"> <i>Cats: Because Dogs Need a Nap Buddy!</i></h4>
             <div class="col-md-3">
                 <div class="card product-card">
