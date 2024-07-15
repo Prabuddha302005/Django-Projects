@@ -1,0 +1,19 @@
+<nav class="navbar bg-dark navbar-dark" style="color: aliceblue;">
+    <div class="container-fluid">
+      <a href="/" class="navbar-brand">Navbar</a>
+      {% if user.is_authenticated %}
+      <div class="d-flex ">
+        <p>Welcome {{user.username | title}}</p>
+            <a href="/logout" class="btn btn-success mx-3" type="submit">Logout</a>
+            <a href="/show-entry" class="btn btn-success mx-3" type="submit">My diary</a>
+           
+        </div>  
+      {% else %}
+      <div class="d-flex">
+        <a href="/register" class="btn btn-primary mx-3" type="submit">Register</a>
+        <a href="/login" class="btn btn-success" type="submit">Login</a>
+        
+      </div>
+      {% endif %}
+    </div>
+  </nav>
