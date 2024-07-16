@@ -64,7 +64,8 @@ def user_logout(request):
 
 def add_entry(request):
    data={}
-   if(request.method=="POST"):
+   if(request.user.is_authenticated):
+    if(request.method=="POST"):
       title=request.POST['title']
       content=request.POST['content']
       print(title, content)
@@ -78,6 +79,8 @@ def add_entry(request):
          save_entry = DairyEntry.objects.create(title=title, content=content, uid=user)
          save_entry.save()
          return redirect("/show-entry")
+   else:
+      return redirect("/login")
    return render(request, "add_entry.html")
 
 
@@ -87,6 +90,7 @@ def show_entry(request):
     show_entries = DairyEntry.objects.filter(uid=request.user.id)
     data['entry'] = show_entries
     return render(request, "show_entry.html", context=data)
+   
    
 def delete_entry(request, entry_id):
    delete_entry = DairyEntry.objects.get(id=entry_id)
