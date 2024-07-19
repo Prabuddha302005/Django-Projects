@@ -6,78 +6,7 @@
 {% endblock stylesheet %}
 {% block body %}
 
-<!-- <div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-6">
-            <div class="card shadow-lg">
-                <div class="card-header bg-primary text-white text-center">
-                    <h2>Login</h2>
-                </div>
-                <div class="card-body">
-                    <form method="POST">
-                        {% if error_msg %}
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {{error_msg}}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        {% endif %}
-                        
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="username" name="username">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password">
-                        </div>
-                        
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">Login</button>
-                        </div>
-                        <p class="text-center mt-3">New user? <a href="/register" class="text-primary">Click here to register</a></p>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- <div class="container mt-4">
-  <div class="row justify-content-center">
-    <div class="col-md-6 col-sm-8">
-      <div class="heading text-center mb-4">Sign In to Your Account</div>
-      <form class="form" method="POST">
-        {% if error_msg %}
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          {{error_msg}}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        {% endif %}
 
-        {% csrf_token %}
-        <div class="input-field">
-          <input type="text" id="username" name="username">
-          <label for="username">Username</label>
-        </div>
-        <div class="input-field">
-          <input type="password" id="password" name="password">
-          <label for="password">Password</label>
-        </div>
-
-        <div class="btn-container text-center">
-          <button class="btn btn-primary">Login</button>
-          <div class="acc-text mt-3">
-            New here? <a href="/register" style="color: #0000ff; cursor: pointer;">Create Account</a>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div> -->
 
 <div class="container mt-3 col-md-6">
   <div class="form_area w-100">

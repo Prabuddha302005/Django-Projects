@@ -5,12 +5,13 @@
 <style>
 /* Body styling with background image */
 body {
-    background-image: url('/static/images/bg_image.png'); /* Replace with your image path */
+    /* background-image: url('/static/images/bg3.jpg'); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: #333333;
     font-family: 'Arial', sans-serif;
+    background-color: rgb(244,247,253);
 }
 
 /* Container styling */
@@ -22,9 +23,10 @@ body {
 
 /* Card styling */
 .card {
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    /* Slightly transparent background */
+    background: linear-gradient(to right, rgba(236,220,217), rgba(236,220,217)); 
     border-radius: 15px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Card header styling */
@@ -78,7 +80,16 @@ a:hover {
 /* Heading styling */
 h2 {
     font-weight: bold;
-    color: #FFFFFF;
+    /* color: #FFFFFF; */
+}
+
+.text-outline {
+    color: #DE5499; /* Your text color */
+    text-shadow: 
+        -1px -1px 0 #000000,  
+         1px -1px 0 #000000,
+        -1px 1px 0 #000000,
+         1px 1px 0 #000000; /* Outline color */
 }
 
 /* Margin for the text below button */
@@ -90,14 +101,27 @@ h2 {
 p {
     margin-top: 10px;
 }
-
+.btn-register {
+    padding: 15px;
+    margin: 25px 0px;
+    width: 100%;
+    font-size: 15px;
+    background: #DE5499;
+    border-radius: 10px;
+    font-weight: 800;
+    box-shadow: 3px 3px 0px 0px #E99F4C;
+  }
+  
+  .btn-register:hover {
+    opacity: .9;
+  }
 
 </style>
-<div class="container mt-5">
+<div class="container mt-5 gradient-bg">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card shadow-lg">
-                <div class="card-header text-center">
+                <div class="card-header text-center text-outline">
                     <h2>Add New Entry</h2>
                 </div>
                 <div class="card-body">
@@ -117,9 +141,13 @@ p {
                             <label for="content" class="form-label">Content</label>
                             <textarea class="form-control" id="content" name="content" rows="5"></textarea>
                         </div>
-                        <div class="d-grid">
+                        <!-- <div class="d-grid">
                             <button type="submit" class="btn btn-custom">Add Entry</button>
-                        </div>
+                        </div> -->
+
+                        <div class="container text-center">
+                            <button class="btn-register ">ADD ENTRY</button>
+                        </a></div>
                     </form>
                 </div>
             </div>

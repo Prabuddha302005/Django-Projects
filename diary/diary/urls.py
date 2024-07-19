@@ -29,4 +29,6 @@ urlpatterns = [
     path('show-entry/<entry_id>', views.delete_entry),
     path('delete-entry/<entry_id>', views.delete_entry),
     path('update-entry/<entry_id>', views.update_entry),
+    path('sort/<flag>', views.filter_by_date),
+    path('search/', views.search),
 ]

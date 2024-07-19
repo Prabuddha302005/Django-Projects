@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from diaryapp.models import DairyEntry
-
+from django.contrib import messages
+from django.db.models import Q
 # Create your views here.
 def homepage(request):
     return render(request, "home.html")
@@ -55,12 +56,15 @@ def user_login(request):
             return render(request, "login.html", context=data)
          else:
             login(request, user)
+            messages.success(request, "Logged in ")
             return redirect('/show-entry')
    return render(request, "login.html")
 
 def user_logout(request):
    logout(request)
+   messages.error(request, "Logged out ")
    return redirect("/")
+
 
 def add_entry(request):
    data={}
@@ -78,23 +82,35 @@ def add_entry(request):
          user = User.objects.get(id=user_id)
          save_entry = DairyEntry.objects.create(title=title, content=content, uid=user)
          save_entry.save()
+         
+         messages.success(request, "Entry added successfully")
          return redirect("/show-entry")
    else:
       return redirect("/login")
    return render(request, "add_entry.html")
 
 
+entries = DairyEntry.objects.none()
 def show_entry(request):
    data={}
+   global entries
+   global filtered_date
+   
    if(request.user.is_authenticated):
     show_entries = DairyEntry.objects.filter(uid=request.user.id)
-    data['entry'] = show_entries
-    return render(request, "show_entry.html", context=data)
+    filtered_date = show_entries.order_by("-time")
+   if(not filtered_date):
+      data['error_msg'] = "No entries found"
+      return render(request, 'show_entry.html', context=data)
+   data['entry'] = filtered_date
+    
+   return render(request, "show_entry.html", context=data)
    
    
 def delete_entry(request, entry_id):
    delete_entry = DairyEntry.objects.get(id=entry_id)
    delete_entry.delete()
+   messages.error(request, "Entry deleted")
    return redirect("/show-entry")
    
 def update_entry(request, entry_id):
@@ -112,6 +128,33 @@ def update_entry(request, entry_id):
       else:
          entry = DairyEntry.objects.filter(id=entry_id)
          entry.update(title=title, content=content)
+         messages.success(request, "Entry updated")
          return redirect("/show-entry")
    return render(request, "update_entry.html", context=data)
    
+def filter_by_date(request, flag):
+   global filtered_date
+   data={}
+   if(flag=='asc'):
+      sorted_date = filtered_date.order_by("-time")
+      
+   else:
+      sorted_date = filtered_date.order_by("time")
+      
+   data['entry'] = sorted_date
+   return render(request, 'show_entry.html', context=data)
+
+
+def search(request):
+   data={}
+   if(request.method=="POST"):
+      entry_name = request.POST['entry_name']
+      print(entry_name)
+      filtered_date = DairyEntry.objects.filter(uid=request.user.id)
+      searched_products = filtered_date.filter(Q(title__icontains=entry_name))
+      if(not searched_products):
+         data['error_msg'] = "No entries found"
+         return render(request, 'show_entry.html', context=data)
+      data['entry']=searched_products
+      return render(request, 'show_entry.html', context=data)
+   return render(request, 'show_entry.html')

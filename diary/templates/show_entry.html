@@ -3,91 +3,248 @@
 {% block body %}
 <style>
     body {
-        background-image: url('path/to/your/background-image.jpg'); /* Replace with your image path */
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        color: #333333;
-        background: #460f46;
-        
+        background: #F4F7FD;
+        margin: 0;
+        padding: 0;
+        /* margin-top: 20px; */
+    }
 
+    .card-margin {
+        margin-bottom: 1.875rem;
     }
-    .diary-container {
-        max-width: 1200px;
-        margin: 50px auto;
-        padding: 20px;
-        background-color: rgba(255, 255, 255, 0.9);
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: #fcfcea;
+
+    .card {
+        border: 0;
+        box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+        -ms-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
     }
-    .diary-entry {
-        background-color: #F7F5F2;
-        padding: 15px;
+
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #ffffff;
+        background-clip: border-box;
+        border: 1px solid #e6e4e9;
         border-radius: 8px;
-        margin-bottom: 20px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        height: 200px;
-        overflow: hidden;
     }
-    .diary-entry h5 {
-        margin-bottom: 10px;
+
+    .card .card-header.no-border {
+        border: 0;
     }
-    .diary-entry p {
-        margin-bottom: 0;
+
+    .card .card-header {
+        background: none;
+        padding: 0 0.9375rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        min-height: 50px;
     }
+
+    .card-header:first-child {
+        border-radius: calc(8px - 1px) calc(8px - 1px) 0 0;
+    }
+
+    .widget-49 .widget-49-title-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    .widget-49 .widget-49-title-wrapper .widget-49-date-primary {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #edf1fc;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+    }
+
+    .widget-49 .widget-49-title-wrapper .widget-49-date-primary .widget-49-date-day {
+        color: #4e73e5;
+        font-weight: 500;
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+
+    .widget-49 .widget-49-title-wrapper .widget-49-date-primary .widget-49-date-month {
+        color: #4e73e5;
+        line-height: 1;
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+
+    .widget-49 .widget-49-title-wrapper .widget-49-meeting-info {
+        display: flex;
+        flex-direction: column;
+        margin-left: 1rem;
+    }
+
+    .widget-49 .widget-49-title-wrapper .widget-49-meeting-info .widget-49-pro-title {
+        color: #3c4142;
+        font-size: 18px;
+    }
+
+    .widget-49 .widget-49-title-wrapper .widget-49-meeting-info .widget-49-meeting-time {
+        color: #B1BAC5;
+        font-size: 13px;
+    }
+
+    .widget-49 .widget-49-meeting-points {
+        font-weight: 400;
+        font-size: 13px;
+        margin-top: .5rem;
+    }
+
+    .widget-49 .widget-49-meeting-points .widget-49-meeting-item {
+        
+        color: #727686;
+    }
+
+    .widget-49 .widget-49-meeting-points .widget-49-meeting-item span {
+        margin-left: .5rem;
+    }
+
+    .widget-49 .widget-49-meeting-action {
+        text-align: right;
+    }
+
+    .widget-49 .widget-49-meeting-action a {
+        text-transform: uppercase;
+    }
+
     .btn-register {
-    padding: 10px;
-    margin: 15px 0px;
-    width: 150px;
-    font-size: 15px;
-    background: #DE5499;
-    border-radius: 10px;
-    font-weight: 800;
-    box-shadow: 3px 3px 0px 0px #E99F4C;
-  }
-  
-  .btn-register:hover {
-    opacity: .9;
-  }
+        padding: 10px;
+        margin: 15px 0px;
+        width: 150px;
+        font-size: 15px;
+        background: #DE5499;
+        border-radius: 10px;
+        font-weight: 800;
+        box-shadow: 3px 3px 0px 0px #E99F4C;
+    }
 
-.blockquote-custom-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: -40px;
-  left: 19px;
-}
+    .btn-register:hover {
+        opacity: .9;
+        box-shadow: 3px 3px 3px 3px #E99F4C;
+    }
+
+    .blockquote-custom-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: -40px;
+        left: 19px;
+    }
+    li{
+     
+    list-style-type: none;
+
+    }
 </style>
-
-<div class="container diary-container shadow-lg rounded-lg overflow-hidden">
-    <h2 class="text-center">Your entries</h2>
-    <div>
-        <a href="/add-entry"><button class="btn-register text-center  ">Add new entry</button></a>
+<div class="container mt-2">
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-8 col-10">
+            <form class="d-flex" role="search" method="POST" action="/search/">
+                {% csrf_token %}
+                <input class="form-control me-2" type="search" placeholder="Search Entry" name="entry_name" aria-label="Search">
+                <button class="btn btn-success" type="submit">Search</button>
+            </form>
+        </div>
     </div>
-    <div class="row ">
-        {% for entries in entry %}
-        <div class="col-md-4 col-sm-6 mb-3">
-            <div class="card h-100 diary-entry bg-white shadow-lg rounded-lg overflow-hidden">
-                <div class="card-body">
-                    <h5 class="card-title text-xl font-semibold text-gray-900 mb-3">{{ entries.title | title }}</h5>
-                    <p class="card-text text-base text-gray-700 mb-4">{{ entries.content|slice:":100" }}...</p>
-                </div>
-                <div class="d-flex justify-content-end">
-                    <a class="btn btn-sm btn-info me-2" data-bs-toggle="modal" data-bs-target="#viewEntryModal{{ entries.id }}"><i class="bi bi-book-half"></i> View</a>
-                    <a href="/update-entry/{{ entries.id }}" class="btn btn-sm btn-primary me-2"><i class="bi bi-pencil-square"></i> Edit</a>
-                    <a href="/delete-entry/{{ entries.id }}" class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i> Delete</a>
+</div>
+<div class="container">
+<div class="container">
+
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags == 'error' %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{message}}
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+ {% else %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+       {{message}}
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+ {% endif %}
+    {% endfor %}
+ {% endif %}
+    <div class="text-start">
+        <li class="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Filter by date
+            </a>
+          <ul class="dropdown-menu"> 
+              <li><a class="dropdown-item" href="/show-entry">Show all</a></li>
+              <li><a class="dropdown-item" href="/sort/asc">Newest to oldest</a></li>
+              <li><a class="dropdown-item" href="/sort/dsc">oldest to newest</a></li>
+          </ul>
+        </li>
+    </div>
+    <div class="text-end">
+        <a href="/add-entry">
+            <button class="btn-register text-center">Add new entry</button>
+        </a>
+    </div>
+<h2 class="text-center mb-3">Your entries</h2>
+
+<div class="row container text-center   mt-5">
+    {% if error_msg %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{error_msg}}
+    
+    </div>
+{% endif %}
+
+
+
+    {% for entries in entry %}
+    
+    <div class="col-lg-3 ">
+        <div class="card card-margin">
+            <div class="card-header no-border">
+                <h5 class="card-title mt-3">{{ entries.title | title|slice:":25" }}</h5>
+            </div>
+            <div class="card-body pt-0">
+                <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                        <div class="widget-49-date-primary">
+                            <span class="widget-49-date-day">{{ entries.time|date:"d" }}</span>
+                            <span class="widget-49-date-month">{{ entries.time|date:"M" }}</span>
+                        </div>
+                        <div class="" style="font-size: larger;">
+                            <span class="widget-49-pro-title">{{ entries.title }}</span>
+                       
+                        </div>
+                    </div>
+                    <hr>
+                    <ul class="text-start" style="font-size: medium; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                        <li class="widget-49-meeting-item">
+                            <span>{{ entries.content|slice:":100" }}...</span>
+                        </li>
+                    </ul>
+                    <div class="widget-49-meeting-action">
+                        <a href="/update-entry/{{ entries.id }}" class="btn btn-sm btn-primary me-2"><i class="bi bi-pencil-square"></i> Edit</a>
+                        <a href="/delete-entry/{{ entries.id }}" class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i> Delete</a>
+                        <a href="#" class="btn btn-sm btn-flash-border-primary" data-bs-toggle="modal" data-bs-target="#viewEntryModal{{ entries.id }}">View All</a>
+                      
+                    </div>
                 </div>
             </div>
         </div>
-        
-        
-        
-        
+
         <!-- Modal for Viewing Entry -->
         <div class="modal fade" id="viewEntryModal{{ entries.id }}" tabindex="-1" aria-labelledby="viewEntryModalLabel{{ entries.id }}" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -97,8 +254,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p class="text-base text-gray-700">{{ entries.content }}</p>
-                        <p class="text-muted mt-3">Posted on: {{ entries.time }}</p>
+                       <p class="text-base text-gray-700">{{ entries.content }} </p>
+                        <p class="text-muted mt-3">Posted on: {{ entries.time|date:"d" }} {{ entries.time|date:"M" }}</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -106,9 +263,11 @@
                 </div>
             </div>
         </div>
-        
-        {% endfor %}
     </div>
+    {% endfor %}
+
+
+</div>
 </div>
 
 {% endblock body %}

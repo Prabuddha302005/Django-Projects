@@ -63,8 +63,24 @@ body {
         -1px 1px 0 #000000,
          1px 1px 0 #000000; /* Outline color */
 }
-    </style>
 
+
+ 
+    </style>
+<div class="container">
+
+
+{% if messages %}
+{% for message in messages %}
+{% if message %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+   {{message}}
+   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+</div>
     <div class="container">
       <h1 class="display-2 text-outline fw-bold">Welcome to LifeScribe</h1>
       <p class="lead">Your personal space to jot down daily thoughts, experiences, and memories.</p>
@@ -103,14 +119,15 @@ body {
           <div class="col-md-4 mt-3">
               <div class="card mb-4 shadow-sm h-100">
                   <div class="card-body">
-                      <h5 class="card-title">Daily Reminders</h5>
-                      <p class="card-text">Never miss a day with our helpful reminders and notifications.</p>
+                      <h5 class="card-title">Save memories</h5>
+                      <p class="card-text">Keep your memories safe and accessible anytime.</p>
                   </div>
               </div>
           </div>
       </div>
   </div>
   {% endblock body %}
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
